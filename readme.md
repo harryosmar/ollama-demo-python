@@ -408,4 +408,4 @@ flask --app main run
 
 ### endpoints
 
-[swagger](http://127.0.0.1:5000/apidocs/)
+[swagger access link http://127.0.0.1:5000/apidocs/](http://127.0.0.1:5000/apidocs/)
