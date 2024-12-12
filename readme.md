@@ -408,5 +408,4 @@ flask --app main run
 
 ### endpoints
 
-- [http://localhost:5000/api/demo/extract/country-data](http://localhost:5000/api/demo/extract/country-data)
-- [http://localhost:5000/api/demo/extract/pets-data](http://localhost:5000/api/demo/extract/pets-data)
+[swagger](http://127.0.0.1:5000/apidocs/)
