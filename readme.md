@@ -1,3 +1,15 @@
+# Ollama constrain output to json schema
+
+Ollama now supports to constrain the output to a json schema. [https://ollama.com/blog/structured-outputs](https://ollama.com/blog/structured-outputs)
+
+
+Use cases for structured outputs include:
+
+- Parsing data from documents
+- Extracting data from images
+- Structuring all language model responses
+- More reliability and consistency than JSON mode
+
 
 ## Install Ollama
 
@@ -409,3 +421,11 @@ flask --app main run
 ### endpoints
 
 [swagger access link http://127.0.0.1:5000/apidocs/](http://127.0.0.1:5000/apidocs/)
+
+## Credits
+
+Give credits to **Matt Williams** with his youtube channel [https://youtu.be/ljQ0i-F34a4?si=vNSux42-5YD4dN4S](https://youtu.be/ljQ0i-F34a4?si=vNSux42-5YD4dN4S).
+
+He was part of the founding Ollama team. Don't forget to check out & subscribe to his channel [https://www.youtube.com/@technovangelist](https://www.youtube.com/@technovangelist), help him to reach 1 million subscribers.
+
+I learned a lot from his videos, thank you Matt, hats off to you!
