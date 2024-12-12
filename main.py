@@ -1,8 +1,11 @@
 from flask import Flask, request, jsonify
 from handler.data_extraction import extract_pet_data
 from handler.data_structure import extract_country_data
+from flasgger import Swagger
 
 app = Flask(__name__)
+app.config['SWAGGER'] = {'title': 'Data Extraction API', 'uiversion': 3}
+Swagger(app, template_file='swagger.yaml')
 
 @app.route('/api/demo/extract/pets-data', methods=['POST'])
 def pet_data_extraction():

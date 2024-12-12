@@ -1,0 +1,86 @@
+swagger: '2.0'
+info:
+  title: Data Extraction API
+  description: API for extracting data
+  version: "1.0"
+paths:
+  /api/demo/extract/pets-data:
+    post:
+      summary: Extract pet data
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              text:
+                type: string
+      responses:
+        200:
+          description: Successful response
+          schema:
+            type: object
+            properties:
+              pets:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    age:
+                      type: integer
+                    animal:
+                      type: string
+                    color:
+                      type: string
+                    favorite_toy:
+                      type: string
+                    name:
+                      type: string
+          examples:
+            application/json:
+              pets:
+                - age: 5
+                  animal: "cat"
+                  color: "grey"
+                  favorite_toy: "yarn"
+                  name: "Loki"
+                - age: 2
+                  animal: "cat"
+                  color: "black"
+                  favorite_toy: "tennis balls"
+                  name: "Luna"
+        400:
+          description: Invalid input
+  /api/demo/extract/country-data:
+    post:
+      summary: Extract country data
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              text:
+                type: string
+      responses:
+        200:
+          description: Successful response
+          schema:
+            type: object
+            properties:
+              capital:
+                type: string
+              languages:
+                type: array
+                items:
+                  type: string
+              name:
+                type: string
+          examples:
+            application/json:
+              capital: "Berlin"
+              languages:
+                - "German"
+              name: "Deutschland"
