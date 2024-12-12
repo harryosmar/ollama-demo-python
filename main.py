@@ -1,16 +1,37 @@
-# This is a sample Python script.
+from flask import Flask, request, jsonify
+from handler.data_extraction import extract_pet_data
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+app = Flask(__name__)
 
+@app.route('/api/demo/data-extraction/advanced', methods=['POST'])
+def simple_data_extraction():
+    if not request.is_json:
+        return jsonify({"error": "Request must be JSON"}), 400
+    
+    text = request.json.get('text') if request.json is not None else None
+    if not text:
+        return jsonify({"error": "Missing 'text' field in request"}), 400
+    
+    try:
+        pets = extract_pet_data(text)
+        return jsonify(pets.model_dump())
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+@app.route('/api/demo/data-extraction/simple', methods=['POST'])
+def simple_data_extraction():
+    if not request.is_json:
+        return jsonify({"error": "Request must be JSON"}), 400
+    
+    text = request.json.get('text') if request.json is not None else None
+    if not text:
+        return jsonify({"error": "Missing 'text' field in request"}), 400
+    
+    try:
+        pets = extract_pet_data(text)
+        return jsonify(pets.model_dump())
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
-
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    app.run(debug=True, port=5000)
